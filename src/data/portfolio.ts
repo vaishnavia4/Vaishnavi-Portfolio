@@ -167,6 +167,84 @@ export const projects: Project[] = [
   },
 ];
 
+/**
+ * Work case studies. Described generically on purpose: no employer code, documents,
+ * internal product/repo names, client names or screenshots. Only outcomes and approach.
+ */
+export type CaseStudy = {
+  title: string;
+  tag: string;
+  context: string;
+  did: string[];
+  results: string[];
+  stack: string[];
+};
+
+export const caseStudies: CaseStudy[] = [
+  {
+    title: "From zero to ISO/IEC 27001:2022 certification in about 9 months",
+    tag: "Security & compliance",
+    context:
+      "A fintech SaaS startup serving enterprise mortgage lenders needed ISO 27001 to win and keep regulated customers. There was no ISMS when the work started.",
+    did: [
+      "Led the technical implementation from the gap assessment through the Stage 1 and Stage 2 certification audits.",
+      "Built the ISMS across clauses 4 to 10: scope, context and stakeholder registers, risk assessment and treatment, Statement of Applicability, objectives, internal audit and management review.",
+      "Mapped all 93 Annex A controls to real platform controls and evidence, and drove treatment of 22 tracked risks with dated, risk-ID-named evidence linked to work items.",
+      "Own the incident management policy, severity classification and escalation procedures, the disaster recovery plan and its tabletop exercises, and DevOps change control.",
+    ],
+    results: ["Certified June 2026", "93 / 93 Annex A controls covered", "22 risks treated with evidence"],
+    stack: ["ISO/IEC 27001:2022", "Azure Policy", "Microsoft Defender", "Entra ID", "Azure Monitor"],
+  },
+  {
+    title: "Self-service tenant provisioning: from over a week to minutes",
+    tag: "Platform engineering",
+    context:
+      "Every new enterprise customer needed its own isolated Azure environment, built by hand over more than a week.",
+    did: [
+      "Designed and built an internal admin application (.NET backend, Node.js UI) that provisions infrastructure, networking, identity, secrets, configuration and deployments end to end, for both shared and dedicated tenant models.",
+      "Backed it with a versioned Bicep module library and Azure DevOps pipelines, and used Claude Code and MCP to speed up development.",
+    ],
+    results: ["Provisioning: over a week to minutes", "Same flow for onboarding and decommissioning"],
+    stack: [".NET", "Node.js", "Bicep", "Azure DevOps", "Claude Code", "MCP"],
+  },
+  {
+    title: "Access control as code for Entra ID and Azure RBAC",
+    tag: "Identity & access",
+    context: "Access reviews for auditors were manual and access could drift between environments.",
+    did: [
+      "Made one YAML file the single source of truth for Entra ID groups, members and Azure role assignments, with every change reviewed in a pull request.",
+      "Built a validate, plan, approval-gated deploy and audit pipeline that removes access not in config, checks for drift and produces quarterly access-review reports with red-flag detection.",
+      "Tied it to joiner and leaver offboarding and to the ISO 27001 identity and access controls.",
+    ],
+    results: ["Every access change reviewed and versioned in git", "Quarterly access review generated automatically"],
+    stack: ["Entra ID", "Azure RBAC", "PowerShell", "Azure DevOps", "YAML"],
+  },
+  {
+    title: "ChatOps: a Teams assistant over the team's runbooks",
+    tag: "AI platform",
+    context: "Operational knowledge was spread across SOPs, notebooks, spreadsheets and architecture diagrams.",
+    did: [
+      "Built a retrieval-augmented chatbot in Microsoft Teams: documents in Blob Storage are indexed by Azure AI Search with document extraction, OCR, language detection and key-phrase skills, and answered by Azure OpenAI.",
+      "Used RBAC-based authentication between Azure AI Search and Azure OpenAI instead of shared keys, and wrote the step-by-step build guide.",
+    ],
+    results: ["Runbooks searchable from Teams", "Text inside diagrams searchable with OCR"],
+    stack: ["Azure OpenAI", "Azure AI Search", "Blob Storage", "Microsoft Teams"],
+  },
+  {
+    title: "Secure multi-tenant Azure platform and networking",
+    tag: "Cloud architecture",
+    context:
+      "Two multi-tenant products for regulated lenders needed strong isolation, private networking and repeatable deployments.",
+    did: [
+      "Architected the estate across 3 subscriptions, separating non-production from production, with hub-and-spoke networking, Private Endpoints and Private DNS, Azure Firewall, Application Gateway and WAF.",
+      "Introduced Bicep company-wide, converting ARM templates into reusable modules, and enforced least privilege with Entra ID, Managed Identities, RBAC, Azure Policy and Defender.",
+      "Cut Azure spend by right-sizing, removing unused services and automating cleanup.",
+    ],
+    results: ["Deployments: 2 to 3 days to under a day", "Azure costs down 30 to 40%"],
+    stack: ["Azure", "Bicep", "Azure Firewall", "App Gateway / WAF", "Private Endpoints"],
+  },
+];
+
 export const focusAreas: { title: string; description: string }[] = [
   {
     title: "Azure platform & networking",
