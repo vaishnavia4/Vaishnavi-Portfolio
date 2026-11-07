@@ -165,6 +165,20 @@ export const projects: Project[] = [
     stack: ["Bicep", "Azure", "GitHub Actions", "OIDC"],
     url: "https://github.com/vaishnavia4/azure-landing-zone-bicep",
   },
+  {
+    title: "entra-rbac-as-code",
+    description:
+      "Access control as code for Microsoft Entra ID and Azure RBAC: one YAML file for groups, members and role assignments, a reviewed plan-and-apply pipeline with OIDC and approvals, nightly drift detection, and a quarterly access-review report mapped to ISO 27001.",
+    stack: ["Python", "Entra ID", "Azure RBAC", "GitHub Actions"],
+    url: "https://github.com/vaishnavia4/entra-rbac-as-code",
+  },
+  {
+    title: "plant-leaf-disease-detection",
+    description:
+      "Final-year ML project: an OpenCV segmentation pipeline plus a Keras CNN that classifies potato leaves as early blight, late blight or healthy, with notes on how I would rebuild it today with transfer learning and MLOps.",
+    stack: ["Python", "TensorFlow / Keras", "OpenCV", "Jupyter"],
+    url: "https://github.com/vaishnavia4/plant-leaf-disease-detection",
+  },
 ];
 
 /**
@@ -194,6 +208,19 @@ export const caseStudies: CaseStudy[] = [
     ],
     results: ["Certified June 2026", "93 / 93 Annex A controls covered", "22 risks treated with evidence"],
     stack: ["ISO/IEC 27001:2022", "Azure Policy", "Microsoft Defender", "Entra ID", "Azure Monitor"],
+  },
+  {
+    title: "Zero Trust architecture across two Azure tenants",
+    tag: "Cloud security",
+    context:
+      "A multi-tenant fintech platform for regulated lenders had to assume breach: no implicit trust in the network, every identity verified, every secret protected.",
+    did: [
+      "Identity: Conditional Access requiring MFA for all users, blocking legacy authentication and automatically remediating high-risk users, with break-glass accounts excluded and monitored.",
+      "Network: 66 private endpoints with 23 private DNS zones, forced-tunnel egress through Azure Firewall with threat intelligence, and a WAF_v2 Application Gateway as the controlled public entry point.",
+      "Data and workloads: RBAC-only Key Vaults with purge protection, managed identities for service-to-service access instead of stored credentials, and anonymous storage access disabled everywhere.",
+    ],
+    results: ["66 private endpoints", "MFA + legacy auth blocked tenant-wide", "No anonymous storage access"],
+    stack: ["Entra ID Conditional Access", "Entra ID Protection", "Azure Firewall", "App Gateway WAF", "Private Link", "Key Vault"],
   },
   {
     title: "Self-service tenant provisioning: from over a week to minutes",
