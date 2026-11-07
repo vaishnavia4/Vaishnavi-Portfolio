@@ -282,14 +282,14 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Entra ID", "Azure RBAC", "PowerShell", "Azure DevOps", "YAML"],
   },
   {
-    title: "ChatOps: a Teams assistant over the team's runbooks",
+    title: "ChatOps: an award-winning Teams assistant over the team's runbooks",
     tag: "AI platform",
     context: "Operational knowledge was spread across SOPs, notebooks, spreadsheets and architecture diagrams.",
     did: [
       "Built a retrieval-augmented chatbot in Microsoft Teams: documents in Blob Storage are indexed by Azure AI Search with document extraction, OCR, language detection and key-phrase skills, and answered by Azure OpenAI.",
       "Used RBAC-based authentication between Azure AI Search and Azure OpenAI instead of shared keys, and wrote the step-by-step build guide.",
     ],
-    results: ["Runbooks searchable from Teams", "Text inside diagrams searchable with OCR"],
+    results: ["1st place, company AI challenge", "Adopted into the team's process", "Runbooks searchable from Teams"],
     stack: ["Azure OpenAI", "Azure AI Search", "Blob Storage", "Microsoft Teams"],
   },
   {
