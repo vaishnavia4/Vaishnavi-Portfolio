@@ -166,6 +166,27 @@ export const projects: Project[] = [
     url: "https://github.com/vaishnavia4/azure-landing-zone-bicep",
   },
   {
+    title: "zero-trust-azure-baseline",
+    description:
+      "Zero Trust baseline for Azure and Entra ID as code: Conditional Access policies (report-only first), an Azure Policy initiative of 25 definitions, and secure-by-default Bicep modules (private endpoints, keyless access, diagnostics); 210 automated tests.",
+    stack: ["Bicep", "Entra ID", "Azure Policy", "Python"],
+    url: "https://github.com/vaishnavia4/zero-trust-azure-baseline",
+  },
+  {
+    title: "ado-pipeline-templates",
+    description:
+      "Reusable Azure DevOps YAML templates: build, Bicep and Terraform, containers, App Service slot swaps, Playwright, Snyk/Sonar/gitleaks scans and approval gates, using workload identity federation instead of secrets; 122 automated checks.",
+    stack: ["Azure DevOps", "YAML", "Bicep", "Terraform"],
+    url: "https://github.com/vaishnavia4/ado-pipeline-templates",
+  },
+  {
+    title: "iso27001-evidence-kit",
+    description:
+      "ISO/IEC 27001:2022 evidence kit: 93-control Statement of Applicability and risk register templates, an evidence naming convention, and a read-only Azure evidence exporter with sha256 manifests and redaction.",
+    stack: ["ISO 27001", "GRC", "Python", "Azure"],
+    url: "https://github.com/vaishnavia4/iso27001-evidence-kit",
+  },
+  {
     title: "entra-rbac-as-code",
     description:
       "Access control as code for Microsoft Entra ID and Azure RBAC: one YAML file for groups, members and role assignments, a reviewed plan-and-apply pipeline with OIDC and approvals, nightly drift detection, and a quarterly access-review report mapped to ISO 27001.",
