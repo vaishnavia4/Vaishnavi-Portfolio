@@ -152,6 +152,20 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "azure-tenant-provisioner",
+    description:
+      "Self-service tenant provisioning for multi-tenant SaaS on Azure: approval-gated (four-eyes) provisioning API in FastAPI, a live demo admin portal in React (environment health, releases, audit log, decommission) and Bicep for shared and dedicated tenants; 63 automated tests.",
+    stack: ["FastAPI", "React", "Bicep", "Entra ID"],
+    url: "https://github.com/vaishnavia4/azure-tenant-provisioner",
+  },
+  {
+    title: "chatops-rag-teams-bot",
+    description:
+      "Retrieval-augmented Microsoft Teams assistant over DevOps runbooks: Azure AI Search (OCR, key phrases, vector search) and Azure OpenAI with citations and refusals, keyless managed identity, Bicep, and an offline mock mode.",
+    stack: ["Azure OpenAI", "Azure AI Search", "Teams", "Python"],
+    url: "https://github.com/vaishnavia4/chatops-rag-teams-bot",
+  },
+  {
     title: "job-hunter",
     description:
       "Open-source Claude Code plugin with a Python MCP server: searches company job boards (Greenhouse, Lever, Ashby, Workday), tailors truthful resumes with an automated truth check, and verifies application forms against a learned answer bank before submission.",
