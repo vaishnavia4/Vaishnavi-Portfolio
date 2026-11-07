@@ -215,11 +215,11 @@ export const caseStudies: CaseStudy[] = [
     context:
       "A multi-tenant fintech platform for regulated lenders had to assume breach: no implicit trust in the network, every identity verified, every secret protected.",
     did: [
-      "Identity: Conditional Access requiring MFA for all users, blocking legacy authentication and automatically remediating high-risk users, with break-glass accounts excluded and monitored.",
-      "Network: 66 private endpoints with 23 private DNS zones, forced-tunnel egress through Azure Firewall with threat intelligence, and a WAF_v2 Application Gateway as the controlled public entry point.",
-      "Data and workloads: RBAC-only Key Vaults with purge protection, managed identities for service-to-service access instead of stored credentials, and anonymous storage access disabled everywhere.",
+      "Identity: Conditional Access in the corporate tenant requiring MFA for all users, blocking legacy authentication and automatically remediating high-risk users, with break-glass accounts excluded.",
+      "Network: 190 private endpoints with private DNS across both tenants, forced-tunnel egress through Azure Firewall with threat intelligence, and WAF_v2 Application Gateways in Prevention mode as the controlled public entry points.",
+      "Data and workloads: RBAC-only Key Vaults with purge protection and managed identities for service-to-service access instead of stored credentials.",
     ],
-    results: ["66 private endpoints", "MFA + legacy auth blocked tenant-wide", "No anonymous storage access"],
+    results: ["190 private endpoints", "WAF in Prevention mode", "MFA + legacy auth blocked (corporate tenant)"],
     stack: ["Entra ID Conditional Access", "Entra ID Protection", "Azure Firewall", "App Gateway WAF", "Private Link", "Key Vault"],
   },
   {
