@@ -1,6 +1,6 @@
-# Vaishnavi A — Portfolio
+# Vaishnavi Akki — Portfolio
 
-Personal portfolio site for **Vaishnavi A**, Cloud Engineer III at Mortgage365.
+Personal portfolio for **Vaishnavi Akki**, Senior Cloud & DevOps Engineer (Azure Platform · SRE · Cloud Security).
 Built as a static React + Vite app, designed to deploy to **GitHub Pages**.
 
 > Live target: `https://vaishnavia4.github.io/Vaishnavi-Portfolio/`

@@ -1,48 +1,49 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { Section } from "./Section";
-import { projects } from "@/data/portfolio";
+import { Github, ArrowUpRight } from "lucide-react";
+import { Section } from "@/components/Section";
+import { projects, focusAreas } from "@/data/portfolio";
 
 export function Projects() {
   return (
     <Section
       id="projects"
       eyebrow="Projects"
-      title="Focus areas I've shipped against."
-      description="The recurring problem spaces from my work across Mortgage365, MetLife, TCS, and Fusion Software Technologies."
+      title="Open-source work"
+      description="Public projects I built and maintain. The code is on GitHub."
     >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
-          <motion.article
+      <div className="grid gap-5 lg:grid-cols-2">
+        {projects.map((p) => (
+          <a
             key={p.title}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.45, delay: i * 0.05 }}
-            className="glass glass-hover group relative flex flex-col overflow-hidden p-6"
+            href={p.url}
+            target="_blank"
+            rel="noreferrer"
+            className="glass glass-hover group flex flex-col p-6"
           >
-            <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent-500/10 blur-2xl transition group-hover:bg-accent-500/20" />
-            <div className="mb-4 flex items-start justify-between">
-              <span className="chip">{p.domain}</span>
-              <ArrowUpRight className="h-4 w-4 translate-y-0 text-slate-500 transition group-hover:-translate-y-0.5 group-hover:text-accent-400" />
+            <div className="flex items-center justify-between">
+              <span className="inline-flex items-center gap-2 font-mono text-base font-semibold text-white">
+                <Github className="h-4 w-4 text-accent-400" />
+                {p.title}
+              </span>
+              <ArrowUpRight className="h-4 w-4 text-slate-400 transition group-hover:text-white" />
             </div>
-            <h3 className="font-display text-lg font-semibold text-white">
-              {p.title}
-            </h3>
-            <p className="mt-2 flex-1 text-sm leading-relaxed text-slate-400">
-              {p.description}
-            </p>
-            <div className="mt-5 flex flex-wrap gap-1.5">
+            <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-300">{p.description}</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
               {p.stack.map((s) => (
-                <span
-                  key={s}
-                  className="rounded-md border border-white/5 bg-white/[0.03] px-2 py-0.5 text-[11px] text-slate-300"
-                >
+                <li key={s} className="chip">
                   {s}
-                </span>
+                </li>
               ))}
-            </div>
-          </motion.article>
+            </ul>
+          </a>
+        ))}
+      </div>
+      <h3 className="mt-14 text-sm font-semibold uppercase tracking-wider text-white">What I do day to day</h3>
+      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {focusAreas.map((f) => (
+          <div key={f.title} className="glass p-5">
+            <p className="font-medium text-white">{f.title}</p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-400">{f.description}</p>
+          </div>
         ))}
       </div>
     </Section>

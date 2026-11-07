@@ -1,86 +1,39 @@
-import { motion } from "framer-motion";
-import { Mail, Linkedin, MapPin, ArrowRight } from "lucide-react";
-import { Section } from "./Section";
+import { Mail, Linkedin, Github, Download } from "lucide-react";
+import { Section } from "@/components/Section";
 import { profile } from "@/data/portfolio";
 
+const base = import.meta.env.BASE_URL;
+
 export function Contact() {
+  const items = [
+    { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}`, external: false },
+    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/vaishnavia24", href: profile.linkedin, external: true },
+    { icon: Github, label: "GitHub", value: "github.com/vaishnavia4", href: profile.github, external: true },
+    { icon: Download, label: "Resume", value: "Download PDF", href: `${base}${profile.resume}`, external: false },
+  ];
   return (
     <Section
       id="contact"
       eyebrow="Contact"
-      title="Let's build something reliable."
-      description="The fastest way to reach me is email or LinkedIn — I usually reply within a day."
+      title="Let's talk"
+      description={`Hiring for Cloud, DevOps, SRE or Platform engineering? I usually reply within a day. Based in ${profile.location}; open to relocation and remote roles.`}
     >
-      <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-        <motion.a
-          href={`mailto:${profile.email}`}
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="glass glass-hover group relative flex items-center justify-between overflow-hidden p-8"
-        >
-          <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-accent-500/10 blur-3xl" />
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-accent-400">
-              Email me
-            </p>
-            <p className="mt-2 font-display text-2xl font-semibold text-white sm:text-3xl">
-              {profile.email}
-            </p>
-            <p className="mt-2 text-sm text-slate-400">
-              For roles, collaborations, or a coffee chat.
-            </p>
-          </div>
-          <span className="ml-4 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white transition group-hover:border-accent-400/60 group-hover:bg-accent-500/10">
-            <ArrowRight className="h-5 w-5" />
-          </span>
-        </motion.a>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="grid grid-rows-3 gap-4"
-        >
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="glass glass-hover flex items-center gap-4 p-5"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
-              <Linkedin className="h-5 w-5 text-accent-400" />
-            </span>
-            <div>
-              <p className="text-sm font-medium text-white">LinkedIn</p>
-              <p className="text-xs text-slate-400">linkedin.com/in/vaishnavia24</p>
-            </div>
-          </a>
-          <a
-            href={`mailto:${profile.email}`}
-            className="glass glass-hover flex items-center gap-4 p-5"
-          >
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
-              <Mail className="h-5 w-5 text-accent-400" />
-            </span>
-            <div>
-              <p className="text-sm font-medium text-white">Email</p>
-              <p className="text-xs text-slate-400">{profile.email}</p>
-            </div>
-          </a>
-          <div className="glass flex items-center gap-4 p-5">
-            <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
-              <MapPin className="h-5 w-5 text-accent-400" />
-            </span>
-            <div>
-              <p className="text-sm font-medium text-white">Based in</p>
-              <p className="text-xs text-slate-400">{profile.location}</p>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {items.map(({ icon: Icon, label, value, href, external }) => (
+          <li key={label}>
+            <a
+              href={href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noreferrer" : undefined}
+              className="glass glass-hover flex h-full flex-col gap-2 p-5"
+            >
+              <Icon className="h-5 w-5 text-accent-400" aria-hidden />
+              <span className="text-xs uppercase tracking-wider text-slate-400">{label}</span>
+              <span className="break-all text-sm font-medium text-white">{value}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

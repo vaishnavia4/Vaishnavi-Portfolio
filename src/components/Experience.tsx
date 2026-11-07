@@ -1,55 +1,49 @@
 import { motion } from "framer-motion";
-import { Briefcase, MapPin } from "lucide-react";
-import { Section } from "./Section";
+import { Section } from "@/components/Section";
 import { experience } from "@/data/portfolio";
 
 export function Experience() {
   return (
-    <Section
-      id="experience"
-      eyebrow="Experience"
-      title="Five plus years, four teams, one focus: cloud."
-      description="A timeline of the engineering teams I've built and shipped with."
-    >
-      <ol className="relative space-y-8 border-l border-white/10 pl-6 sm:pl-10">
-        {experience.map((job, i) => (
+    <Section id="experience" eyebrow="Experience" title="Six-plus years across four teams">
+      <ol className="relative space-y-8 border-l border-white/10 pl-6 sm:pl-8">
+        {experience.map((e, i) => (
           <motion.li
-            key={`${job.company}-${i}`}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            key={e.company + e.period}
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.45, delay: i * 0.05 }}
+            transition={{ delay: i * 0.05 }}
             className="relative"
           >
-            <span className="absolute -left-[33px] flex h-6 w-6 items-center justify-center rounded-full border border-white/10 bg-ink-900 sm:-left-[45px]">
-              <Briefcase className="h-3 w-3 text-accent-400" />
-            </span>
-            <div className="glass glass-hover p-6">
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="text-lg font-semibold text-white">
-                  {job.role}
-                  <span className="ml-2 font-normal text-slate-400">
-                    @ {job.company}
+            <span
+              className="absolute -left-[31px] top-2 h-3 w-3 rounded-full border-2 border-accent-400 bg-ink-950 sm:-left-[39px]"
+              aria-hidden
+            />
+            <div className="glass p-5 sm:p-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-display text-lg font-semibold text-white">
+                  {e.role}{" "}
+                  <span className="text-slate-400">
+                    · {e.company}
+                    {e.client && <span className="text-slate-500"> (client: {e.client})</span>}
                   </span>
                 </h3>
-                <span className="text-xs font-medium uppercase tracking-wider text-accent-400">
-                  {job.period}
-                </span>
-              </div>
-              {job.location && (
-                <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-slate-400">
-                  <MapPin className="h-3 w-3" />
-                  {job.location}
+                <p className="text-sm text-slate-400">
+                  {e.period} · {e.location}
                 </p>
-              )}
-              <ul className="mt-4 space-y-2">
-                {job.highlights.map((h, idx) => (
-                  <li
-                    key={idx}
-                    className="flex gap-3 text-sm leading-relaxed text-slate-300"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" />
+              </div>
+              <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-300">
+                {e.highlights.map((h) => (
+                  <li key={h.slice(0, 30)} className="flex gap-3">
+                    <span className="mt-2 h-1 w-1 flex-none rounded-full bg-accent-400" aria-hidden />
                     {h}
+                  </li>
+                ))}
+              </ul>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {e.stack.map((s) => (
+                  <li key={s} className="chip">
+                    {s}
                   </li>
                 ))}
               </ul>
