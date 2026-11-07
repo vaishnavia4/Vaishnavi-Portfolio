@@ -1,4 +1,4 @@
-# Vaishnavi Akki — Portfolio
+# Vaishnavi Akki | Portfolio
 
 Personal portfolio for **Vaishnavi Akki**, Senior Cloud & DevOps Engineer (Azure Platform · SRE · Cloud Security).
 Built as a static React + Vite app, designed to deploy to **GitHub Pages**.
@@ -8,7 +8,7 @@ Built as a static React + Vite app, designed to deploy to **GitHub Pages**.
 ## Stack
 
 - **Vite + React 18 + TypeScript**
-- **Tailwind CSS** (shadcn-style project structure — `components/ui/`, `lib/utils`, `@/*` aliases)
+- **Tailwind CSS** (shadcn-style project structure: `components/ui/`, `lib/utils`, `@/*` aliases)
 - **Framer Motion** for entrance + scroll animations
 - **@tsparticles/react + slim** for the hero `SparklesCore` background
 - **lucide-react** for icons
@@ -36,13 +36,13 @@ It will appear in the hero. If the file is missing the hero gracefully falls bac
 
 All copy is centralised in [`src/data/portfolio.ts`](src/data/portfolio.ts). Everything in the site is rendered from that file:
 
-- `profile` — name, role, email, links, photo path, summary
-- `topSkills` — chips shown in the hero
-- `skillGroups` — Skills section cards
-- `experience` — Experience timeline
-- `education`, `honors`, `languages` — About card content
-- `certifications` — Certifications grid
-- `projects` — Projects grid (currently scoped to expertise domains from the resume; replace with specific named projects whenever you want)
+- `profile`: name, role, email, links, photo path, summary
+- `topSkills`: chips shown in the hero
+- `skillGroups`: Skills section cards
+- `experience`: Experience timeline
+- `education`, `honors`, `languages`: About card content
+- `certifications`: Certifications grid
+- `projects`: Projects grid (currently scoped to expertise domains from the resume; replace with specific named projects whenever you want)
 
 ## Deploy to GitHub Pages
 
@@ -70,7 +70,7 @@ If you prefer pushing the built site to a `gh-pages` branch instead:
 npm run deploy
 ```
 
-This uses the `gh-pages` package to publish `dist/` to the `gh-pages` branch — then set **Settings → Pages → Source: Deploy from a branch → gh-pages /(root)**.
+This uses the `gh-pages` package to publish `dist/` to the `gh-pages` branch, then set **Settings → Pages → Source: Deploy from a branch → gh-pages /(root)**.
 
 ## Project structure
 
@@ -121,4 +121,4 @@ This is the **shadcn/ui convention**: primitives and reusable UI atoms live in `
 
 ## Notes on content
 
-All facts (employers, dates, certifications, languages, education) come directly from the resume PDF. The Projects section currently lists the **focus areas** called out in the resume summary (cloud infra, data center migration, CI/CD, containers, IaC, Azure data services) — swap them out with specific project names + outcomes whenever you're ready.
+All facts (employers, dates, certifications, languages, education) come directly from the resume PDF. The Projects section currently lists the **focus areas** called out in the resume summary (cloud infra, data center migration, CI/CD, containers, IaC, Azure data services), swap them out with specific project names + outcomes whenever you're ready.

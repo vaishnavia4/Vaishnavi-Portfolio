@@ -18,10 +18,10 @@ export const profile = {
   photo: "profile.jpg",
   years: "6+",
   tagline:
-    "I build secure, automated Azure platforms — from hub-and-spoke networks and Bicep to CI/CD, incident response and ISO 27001.",
+    "I build secure, automated Azure platforms, from hub-and-spoke networks and Bicep to CI/CD, incident response and ISO 27001.",
   summary: [
     "Cloud and DevOps engineer with 6+ years building secure, automated platforms on Azure, AWS and GCP.",
-    "Today I own the end-to-end Azure platform behind two mortgage-technology products used by enterprise lenders, including Navy Federal Credit Union and Lennar Mortgage — architecture, networking, CI/CD, security, monitoring and production support.",
+    "Today I own the end-to-end Azure platform behind two mortgage-technology products used by enterprise lenders, including Navy Federal Credit Union and Lennar Mortgage: architecture, networking, CI/CD, security, monitoring and production support.",
     "I care about removing toil: infrastructure as code, self-service automation, least-privilege security, and AI-assisted engineering with Claude Code and MCP.",
   ],
 };
@@ -84,7 +84,7 @@ export const experience: Experience[] = [
   {
     company: "Mortgage365",
     role: "Cloud Engineer III",
-    period: "Apr 2024 — Present",
+    period: "Apr 2024 - Present",
     location: "Colorado, USA",
     highlights: [
       "Own the Azure platform for two multi-tenant mortgage products used by enterprise lenders including Navy Federal Credit Union, Lennar Mortgage, Planet Home Lending and Carrington.",
@@ -98,7 +98,7 @@ export const experience: Experience[] = [
     company: "Vel True Technologies",
     client: "MetLife",
     role: "Cloud DevOps Engineer",
-    period: "Jun 2023 — Feb 2024",
+    period: "Jun 2023 - Feb 2024",
     location: "Remote",
     highlights: [
       "Built Azure DevOps CI/CD pipelines supporting 20+ enterprise applications across development, test and higher environments.",
@@ -111,7 +111,7 @@ export const experience: Experience[] = [
     company: "Tata Consultancy Services",
     client: "HSBC",
     role: "DevOps Engineer",
-    period: "Nov 2020 — Apr 2023",
+    period: "Nov 2020 - Apr 2023",
     location: "Hyderabad, India",
     highlights: [
       "Migrated data-center applications to Amazon EKS and ECS, improving scalability and reducing infrastructure costs.",
@@ -123,7 +123,7 @@ export const experience: Experience[] = [
   {
     company: "Fusion Software Technologies",
     role: "Build & Release / Jr. DevOps Engineer",
-    period: "Jun 2018 — Oct 2020",
+    period: "Jun 2018 - Oct 2020",
     location: "Hyderabad, India",
     highlights: [
       "Migrated on-premises infrastructure to Google Cloud, reducing operational costs by 30%.",
