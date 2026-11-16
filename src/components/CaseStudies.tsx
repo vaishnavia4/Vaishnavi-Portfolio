@@ -1,4 +1,4 @@
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ArrowUpRight } from "lucide-react";
 import { Section } from "@/components/Section";
 import { caseStudies } from "@/data/portfolio";
 
@@ -38,6 +38,18 @@ export function CaseStudies() {
                 </li>
               ))}
             </ul>
+            {c.note && <p className="mt-4 text-xs italic leading-relaxed text-slate-400">{c.note}</p>}
+            {c.link && (
+              <a
+                href={c.link.url}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 inline-flex w-fit items-center gap-1.5 text-sm font-medium text-accent-400 hover:underline"
+              >
+                {c.link.label}
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            )}
           </article>
         ))}
       </div>

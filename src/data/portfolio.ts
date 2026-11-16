@@ -154,7 +154,7 @@ export const projects: Project[] = [
   {
     title: "azure-tenant-provisioner",
     description:
-      "Self-service tenant provisioning for multi-tenant SaaS on Azure: approval-gated (four-eyes) provisioning API in FastAPI, a live demo admin portal in React (environment health, releases, audit log, decommission) and Bicep for shared and dedicated tenants; 63 automated tests.",
+      "Self-service tenant provisioning for multi-tenant SaaS on Azure: approval-gated (four-eyes) provisioning API in FastAPI, a live demo admin portal in React (environment health, releases, audit log, decommission) and Bicep for shared and dedicated tenants, plus per-tenant cost tracking and budget alerts; 63 automated tests.",
     stack: ["FastAPI", "React", "Bicep", "Entra ID"],
     url: "https://github.com/vaishnavia4/azure-tenant-provisioner",
   },
@@ -227,6 +227,10 @@ export type CaseStudy = {
   did: string[];
   results: string[];
   stack: string[];
+  /** Optional confidentiality / context note shown under the card. */
+  note?: string;
+  /** Optional link to a public re-implementation. */
+  link?: { label: string; url: string };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -258,16 +262,24 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Entra ID Conditional Access", "Entra ID Protection", "Azure Firewall", "App Gateway WAF", "Private Link", "Key Vault"],
   },
   {
-    title: "Self-service tenant provisioning: from over a week to minutes",
+    title: "Admin & onboarding platform for a multi-tenant AI product (work project)",
     tag: "Platform engineering",
     context:
-      "Every new enterprise customer needed its own isolated Azure environment, built by hand over more than a week.",
+      "A new AI-based mortgage platform, piloting with 4 enterprise clients, needed every client environment provisioned, secured and released consistently. Building one by hand took over a week.",
     did: [
-      "Designed and built an internal admin application (.NET backend, Node.js UI) that provisions infrastructure, networking, identity, secrets, configuration and deployments end to end, for both shared and dedicated tenant models.",
-      "Backed it with a versioned Bicep module library and Azure DevOps pipelines, and used Claude Code and MCP to speed up development.",
+      "Role: sole lead DevOps engineer for the platform; architected its infrastructure from the ground up, defining tenant and subscription strategy, network and security boundaries, RBAC, Azure Policy and IaC standards, with non-production (DEV, UAT) and production (STG, PRD) in dedicated subscriptions.",
+      "Built an internal admin app (.NET 10 backend, Node.js UI, Bicep, Azure DevOps, Dataverse, MCP), developed with Claude Code, that automates provisioning, networking, identity, secrets, configuration and releases end to end, with Entra ID single sign-on.",
+      "Used AI agents to automate client onboarding, and ran onboarding and decommissioning from a single administrative workflow.",
+      "Own nearly all Azure DevOps pipelines (build, deploy, unit and integration tests, Playwright, Snyk) and run continuous deployments for the 4 enterprise clients.",
+      "Primary incident responder with 24x7 on-call coverage: SEV1 response within 30 minutes, SEV2 within 4 hours.",
     ],
-    results: ["Provisioning: over a week to minutes", "Same flow for onboarding and decommissioning"],
-    stack: [".NET", "Node.js", "Bicep", "Azure DevOps", "Claude Code", "MCP"],
+    results: ["Provisioning: over a week to minutes", "Piloting with 4 enterprise clients", "Onboarding and decommissioning in one workflow"],
+    stack: [".NET 10", "Node.js", "Bicep", "Azure DevOps", "Dataverse", "Entra ID SSO", "MCP", "Claude Code"],
+    note: "Proprietary employer project: no code, screenshots or client details here. Happy to walk through the design in interviews.",
+    link: {
+      label: "Open-source version of this pattern, built from scratch with demo data",
+      url: "https://github.com/vaishnavia4/azure-tenant-provisioner",
+    },
   },
   {
     title: "Access control as code for Entra ID and Azure RBAC",
