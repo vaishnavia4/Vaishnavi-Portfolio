@@ -154,9 +154,16 @@ export const projects: Project[] = [
   {
     title: "azure-tenant-provisioner",
     description:
-      "Self-service tenant provisioning for multi-tenant SaaS on Azure: approval-gated (four-eyes) provisioning API in FastAPI, a live demo admin portal in React (environment health, releases, audit log, decommission) and Bicep for shared and dedicated tenants, plus per-tenant cost tracking and budget alerts; 63 automated tests.",
+      "Self-service tenant provisioning for multi-tenant SaaS on Azure: approval-gated (four-eyes) provisioning API in FastAPI, a live demo admin portal in React (environment health, releases, audit log, decommission) and Bicep for shared and dedicated tenants, plus per-tenant cost tracking and budget alerts; 118 automated tests.",
     stack: ["FastAPI", "React", "Bicep", "Entra ID"],
     url: "https://github.com/vaishnavia4/azure-tenant-provisioner",
+  },
+  {
+    title: "ado-release-readiness",
+    description:
+      "Azure DevOps extension that adds a Release Readiness hub under Pipelines: reads Playwright end-to-end results read-only as the signed-in viewer and gives each environment a GO / CAUTION / NO-GO verdict with rule-by-rule reasons, pass-rate trends, new vs known failures and flaky tests; per-project feature flag, private .vsix packaging, live demo with fictional data; 56 automated tests.",
+    stack: ["Azure DevOps", "TypeScript", "Playwright", "GitHub Actions"],
+    url: "https://github.com/vaishnavia4/ado-release-readiness",
   },
   {
     title: "chatops-rag-teams-bot",
